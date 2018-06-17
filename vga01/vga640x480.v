@@ -1,6 +1,9 @@
-// FPGA VGA Graphics Part 1: VGA Driver
+// FPGA VGA Graphics Part 1: 640x480 60Hz VGA Driver
 // (C)2017-2018 Will Green - Licensed under the MIT License
 // Learn more at https://timetoexplore.net/blog/arty-fpga-vga-verilog-01
+
+// For 60Hz VGA the ratio of i_clk to i_pix_stb must be 25 or 25.175 MHz
+// Details in tutorial: https://timetoexplore.net/blog/arty-fpga-vga-verilog-01
 
 `default_nettype none
 
