@@ -2,7 +2,7 @@
 // (C)2017-2018 Will Green - Licensed under the MIT License
 // Learn more at https://timetoexplore.net/blog/arty-fpga-vga-verilog-01
 
-// For 60Hz VGA the ratio of i_clk to i_pix_stb must be 25 or 25.175 MHz
+// For 60Hz VGA the ratio of i_clk to i_pix_stb must be 25 MHz or 25.175 MHz
 // Details in tutorial: https://timetoexplore.net/blog/arty-fpga-vga-verilog-01
 
 `default_nettype none
@@ -21,7 +21,7 @@ module vga640x480(
     output wire [8:0] o_y       // current pixel y position
     );
 
-    // VGA Timings https://timetoexplore.net/blog/video-timings-vga-720p-1080p
+    // VGA timings https://timetoexplore.net/blog/video-timings-vga-720p-1080p
     localparam HS_STA = 16;              // horizontal sync start
     localparam HS_END = 16 + 96;         // horizontal sync end
     localparam HA_STA = 16 + 96 + 48;    // horizontal active pixel start
