@@ -54,7 +54,7 @@ module top(
         .ADDR_WIDTH(VRAM_A_WIDTH), 
         .DATA_WIDTH(VRAM_D_WIDTH), 
         .DEPTH(VRAM_DEPTH), 
-        .MEMFILE("my-image.mem"))  // UPDATE ME
+        .MEMFILE("game.mem"))  // bitmap to load
         vram (
         .i_addr(address), 
         .i_clk(CLK), 
@@ -67,7 +67,7 @@ module top(
     reg [11:0] colour;
     initial begin
         $display("Loading palette.");
-        $readmemh("my-image_palette.mem", palette);  // UPDATE ME
+        $readmemh("game_palette.mem", palette);  // bitmap palette
     end
 
     always @ (posedge CLK)
