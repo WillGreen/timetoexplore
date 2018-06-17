@@ -67,7 +67,7 @@ module top(
     reg [11:0] colour;
     initial begin
         $display("Loading palette.");
-        $readmemh("game_palette.mem", palette);  // bitmap palette
+        $readmemh("game_palette.mem", palette);  // bitmap palette to load
     end
 
     always @ (posedge CLK)
