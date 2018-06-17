@@ -176,37 +176,37 @@ module top(
             end
         end
 
-		// draw player ship
-		if (address_fb1 >= VRAM_DEPTH)  // background drawing is finished 
-		begin
-		    if (pl_pix_y < SPRITE_SIZE)
-		    begin
-		        if (pl_pix_x < SPRITE_SIZE - 1)
-		            pl_pix_x <= pl_pix_x + 1;
-		        else
-		        begin
-		            pl_pix_x <= 0;
-		            pl_pix_y <= pl_pix_y + 1;
-		        end
+        // draw player ship
+        if (address_fb1 >= VRAM_DEPTH)  // background drawing is finished 
+        begin
+            if (pl_pix_y < SPRITE_SIZE)
+            begin
+                if (pl_pix_x < SPRITE_SIZE - 1)
+                    pl_pix_x <= pl_pix_x + 1;
+                else
+                begin
+                    pl_pix_x <= 0;
+                    pl_pix_y <= pl_pix_y + 1;
+                end
 
-		        address_s <= SPRITE_PL_OFFSET 
-		        			+ (SPRITE_SIZE * pl_pix_y) + pl_pix_x;
-		        address_fb1 <= SCREEN_WIDTH * (pl_y + pl_pix_y) 
-		        			+ pl_x + pl_pix_x;
-		        address_fb2 <= address_fb1;
+                address_s <= SPRITE_PL_OFFSET 
+                            + (SPRITE_SIZE * pl_pix_y) + pl_pix_x;
+                address_fb1 <= SCREEN_WIDTH * (pl_y + pl_pix_y) 
+                            + pl_x + pl_pix_x;
+                address_fb2 <= address_fb1;
 
-		        if (we_a)
-		        begin
-		            address_a <= address_fb2;
-		            datain_a <= dataout_s;
-		        end
-		        else
-		        begin
-		            address_b <= address_fb2;
-		            datain_b <= dataout_s;
-		        end
-		    end
-		end
+                if (we_a)
+                begin
+                    address_a <= address_fb2;
+                    datain_a <= dataout_s;
+                end
+                else
+                begin
+                    address_b <= address_fb2;
+                    datain_b <= dataout_s;
+                end
+            end
+        end
 
         if (pix_stb)  // once per pixel
         begin
