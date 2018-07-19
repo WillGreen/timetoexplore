@@ -15,8 +15,11 @@ module sram #(parameter ADDR_WIDTH=8, DATA_WIDTH=8, DEPTH=256, MEMFILE="") (
     reg [DATA_WIDTH-1:0] memory_array [0:DEPTH-1]; 
 
     initial begin
-        $display("Loading memory init file '" + MEMFILE + "' into array.");
-        $readmemh(MEMFILE, memory_array);
+        if (MEMFILE > 0)
+        begin
+            $display("Loading memory init file '" + MEMFILE + "' into array.");
+            $readmemh(MEMFILE, memory_array);
+        end
     end
 
     always @ (posedge i_clk)
