@@ -115,7 +115,7 @@ module top(
         $readmemh("sprites_palette.mem", palette);
     end
 
-    // Sprites to load and position of player sprite in frame
+    // sprites to load and position of player sprite in frame
     localparam SPRITE_BG_INDEX = 7;  // background sprite
     localparam SPRITE_PL_INDEX = 0;  // player sprite
     localparam SPRITE_BG_OFFSET = SPRITE_BG_INDEX * SPRITE_SIZE * SPRITE_SIZE;
