@@ -1,7 +1,7 @@
 ## FPGA VGA Graphics Part 2: Basys3 Board Constraints
 ## Adapted from Digilent master file:
 ##  https://github.com/Digilent/digilent-xdc/blob/master/Basys-3-Master.xdc
-## Learn more at https://timetoexplore.net/blog/arty-fpga-vga-verilog-01
+## Learn more at https://timetoexplore.net/blog/arty-fpga-vga-verilog-02
 
 ## Clock
 set_property -dict {PACKAGE_PIN W5  IOSTANDARD LVCMOS33} [get_ports {CLK}];
