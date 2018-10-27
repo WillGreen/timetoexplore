@@ -5,7 +5,7 @@
 `default_nettype none
 
 module top(
-    input wire CLK,             // board clock: 100 MHz on Arty & Basys 3
+    input wire CLK,             // board clock: 100 MHz on Arty/Basys3/Nexys
     input wire RST_BTN,         // reset button
     input wire [3:0] sw,        // four switches
     output wire VGA_HS_O,       // horizontal sync output
@@ -15,7 +15,9 @@ module top(
     output reg [3:0] VGA_B      // 4-bit VGA blue output
     );
 
-    wire rst = ~RST_BTN;  // reset is active low on Arty
+    wire rst = ~RST_BTN;    // reset is active low on Arty & Nexys Video
+    // wire rst = RST_BTN;  // reset is active high on Basys3 (BTNC)
+
 
     // generate a 25 MHz pixel strobe
     reg [15:0] cnt;
