@@ -11,6 +11,12 @@ create_clock -add -name sys_clk_pin -period 10.00 \
 ## Reset Button (active low)
 set_property -dict {PACKAGE_PIN G4  IOSTANDARD LVCMOS15} [get_ports {RST_BTN}];
 
+## Slide Switches
+set_property -dict {PACKAGE_PIN E22 IOSTANDARD LVCMOS12} [get_ports {sw[0]}];
+set_property -dict {PACKAGE_PIN F21 IOSTANDARD LVCMOS12} [get_ports {sw[1]}];
+set_property -dict {PACKAGE_PIN G21 IOSTANDARD LVCMOS12} [get_ports {sw[2]}];
+set_property -dict {PACKAGE_PIN G22 IOSTANDARD LVCMOS12} [get_ports {sw[3]}];
+
 ## VGA Pmod Header JB
 set_property -dict {PACKAGE_PIN V9  IOSTANDARD LVCMOS33} [get_ports {VGA_R[0]}];
 set_property -dict {PACKAGE_PIN V8  IOSTANDARD LVCMOS33} [get_ports {VGA_R[1]}];

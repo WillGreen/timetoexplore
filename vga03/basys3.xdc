@@ -11,6 +11,12 @@ create_clock -add -name sys_clk_pin -period 10.00 \
 ## Use BTNC as Reset Button (active high)
 set_property -dict {PACKAGE_PIN U18 IOSTANDARD LVCMOS33} [get_ports {RST_BTN}];
 
+## Slide Switches
+set_property -dict {PACKAGE_PIN V17 IOSTANDARD LVCMOS33} [get_ports {sw[0]}];
+set_property -dict {PACKAGE_PIN V16 IOSTANDARD LVCMOS33} [get_ports {sw[1]}];
+set_property -dict {PACKAGE_PIN W16 IOSTANDARD LVCMOS33} [get_ports {sw[2]}];
+set_property -dict {PACKAGE_PIN W17 IOSTANDARD LVCMOS33} [get_ports {sw[3]}];
+
 ## VGA Connector
 set_property -dict {PACKAGE_PIN G19 IOSTANDARD LVCMOS33} [get_ports {VGA_R[0]}];
 set_property -dict {PACKAGE_PIN H19 IOSTANDARD LVCMOS33} [get_ports {VGA_R[1]}];
