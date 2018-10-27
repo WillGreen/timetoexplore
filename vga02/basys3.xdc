@@ -1,4 +1,4 @@
-## FPGA VGA Graphics Part 2: Basys3 Board Constraints
+## FPGA VGA Graphics Part 2: Basys 3 Board Constraints
 ## Adapted from Digilent master file:
 ##  https://github.com/Digilent/digilent-xdc/blob/master/Basys-3-Master.xdc
 ## Learn more at https://timetoexplore.net/blog/arty-fpga-vga-verilog-02
