@@ -1,6 +1,6 @@
 ## FPGA VGA Graphics Part 1: Arty Board Constraints
 ## Adapted from Digilent master file:
-##   https://github.com/Digilent/digilent-xdc/blob/master/Arty-Master.xdc
+##  https://github.com/Digilent/digilent-xdc/blob/master/Arty-Master.xdc
 ## Learn more at https://timetoexplore.net/blog/arty-fpga-vga-verilog-01
 
 ## Clock

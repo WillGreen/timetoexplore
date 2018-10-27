@@ -3,7 +3,7 @@
 // Learn more at https://timetoexplore.net/blog/arty-fpga-vga-verilog-01
 
 module top(
-    input wire CLK,             // board clock: 100 MHz on Arty & Basys 3
+    input wire CLK,             // board clock: 100 MHz on Arty/Basys3/Nexys
     input wire RST_BTN,         // reset button
     output wire VGA_HS_O,       // horizontal sync output
     output wire VGA_VS_O,       // vertical sync output
@@ -12,7 +12,8 @@ module top(
     output wire [3:0] VGA_B     // 4-bit VGA blue output
     );
 
-    wire rst = ~RST_BTN;  // reset is active low on Arty
+    wire rst = ~RST_BTN;    // reset is active low on Arty & Nexys Video
+    // wire rst = RST_BTN;  // reset is active high on Basys3 (BTNC)
 
     // generate a 25 MHz pixel strobe
     reg [15:0] cnt;
