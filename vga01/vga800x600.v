@@ -1,13 +1,13 @@
-// FPGA VGA Graphics Part 1: 640x480 60Hz VGA Driver
-// (C)2017-2018 Will Green - Licensed under the MIT License
+// FPGA VGA Graphics Part 1: 800x600 60Hz VGA Driver
+// (C)2018 Will Green - Licensed under the MIT License
 // Learn more at https://timetoexplore.net/blog/arty-fpga-vga-verilog-01
 
-// For 60 Hz VGA i_pix_stb must be 25 MHz or 25.175 MHz
+// For 60 Hz VGA i_pix_stb must be 40 MHz
 // Details in tutorial: https://timetoexplore.net/blog/arty-fpga-vga-verilog-01
 
 `default_nettype none
 
-module vga640x480(
+module vga800x600(
     input wire i_clk,           // base clock
     input wire i_pix_stb,       // pixel clock strobe
     input wire i_rst,           // reset: restarts frame
@@ -17,26 +17,26 @@ module vga640x480(
     output wire o_active,       // high during active pixel drawing
     output wire o_screenend,    // high for one tick at the end of screen
     output wire o_animate,      // high for one tick at end of active drawing
-    output wire [9:0] o_x,      // current pixel x position
-    output wire [8:0] o_y       // current pixel y position
+    output wire [10:0] o_x,     // current pixel x position
+    output wire  [9:0] o_y      // current pixel y position
     );
 
     // VGA timings https://timetoexplore.net/blog/video-timings-vga-720p-1080p
-    localparam HS_STA = 16;              // horizontal sync start
-    localparam HS_END = 16 + 96;         // horizontal sync end
-    localparam HA_STA = 16 + 96 + 48;    // horizontal active pixel start
-    localparam VS_STA = 480 + 11;        // vertical sync start
-    localparam VS_END = 480 + 11 + 2;    // vertical sync end
-    localparam VA_END = 480;             // vertical active pixel end
-    localparam LINE   = 800;             // complete line (pixels)
-    localparam SCREEN = 524;             // complete screen (lines)
+    localparam HS_STA = 40;              // horizontal sync start
+    localparam HS_END = 40 + 128;        // horizontal sync end
+    localparam HA_STA = 40 + 128 + 88;   // horizontal active pixel start
+    localparam VS_STA = 600 + 1;         // vertical sync start
+    localparam VS_END = 600 + 1 + 4;     // vertical sync end
+    localparam VA_END = 600;             // vertical active pixel end
+    localparam LINE   = 1056;            // complete line (pixels)
+    localparam SCREEN = 628;             // complete screen (lines)
 
-    reg [9:0] h_count;  // line position
-    reg [9:0] v_count;  // screen position
+    reg [10:0] h_count; // line position
+    reg  [9:0] v_count; // screen position
 
-    // generate sync signals (active low for 640x480)
-    assign o_hs = ~((h_count >= HS_STA) & (h_count < HS_END));
-    assign o_vs = ~((v_count >= VS_STA) & (v_count < VS_END));
+    // generate sync signals (active high for 800x600)
+    assign o_hs = ((h_count >= HS_STA) & (h_count < HS_END));
+    assign o_vs = ((v_count >= VS_STA) & (v_count < VS_END));
 
     // keep x and y bound within the active pixels
     assign o_x = (h_count < HA_STA) ? 0 : (h_count - HA_STA);
