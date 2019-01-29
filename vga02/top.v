@@ -3,7 +3,7 @@
 // Learn more at https://timetoexplore.net/blog/arty-fpga-vga-verilog-02
 
 // NB. This example loads an image and a palette file
-// Replace .mem file names on lines 57 and 70 as appropriate
+// Replace .mem file names on lines 58 and 71 as appropriate
 
 `default_nettype none
 
