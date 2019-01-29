@@ -1,5 +1,5 @@
 ## FPGA VGA Graphics Part 1: Arty S7-50T Board Constraints
-## Learn more at https://timetoexplore.net/blog/arty-fpga-vga-verilog-01
+## Learn more at https://timetoexplore.net/blog/arty-fpga-vga-verilog-02
 
 ## Clock
 set_property -dict {PACKAGE_PIN R2  IOSTANDARD LVCMOS33} [get_ports {CLK}];

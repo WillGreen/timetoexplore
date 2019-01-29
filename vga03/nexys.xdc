@@ -1,6 +1,4 @@
 ## FPGA VGA Graphics Part 3: Nexys Video Board Constraints
-## Adapted from Digilent master file:
-##  https://github.com/Digilent/digilent-xdc/blob/master/Nexys-Video-Master.xdc
 ## Learn more at https://timetoexplore.net/blog/arty-fpga-vga-verilog-03
 
 ## Clock
@@ -34,3 +32,7 @@ set_property -dict {PACKAGE_PIN AA8 IOSTANDARD LVCMOS33} [get_ports {VGA_G[2]}];
 set_property -dict {PACKAGE_PIN AB8 IOSTANDARD LVCMOS33} [get_ports {VGA_G[3]}];
 set_property -dict {PACKAGE_PIN R6  IOSTANDARD LVCMOS33} [get_ports {VGA_HS_O}];
 set_property -dict {PACKAGE_PIN T6  IOSTANDARD LVCMOS33} [get_ports {VGA_VS_O}];
+
+## Configuration options, can be used for all designs
+set_property CONFIG_VOLTAGE 3.3 [current_design]
+set_property CFGBVS VCCO [current_design]
