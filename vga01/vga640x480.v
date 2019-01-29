@@ -1,8 +1,8 @@
 // FPGA VGA Graphics Part 1: 640x480 60Hz VGA Driver
-// (C)2017-2018 Will Green - Licensed under the MIT License
+// (C)2017-2019 Will Green - Licensed under the MIT License
 // Learn more at https://timetoexplore.net/blog/arty-fpga-vga-verilog-01
 
-// For 60 Hz VGA i_pix_stb must be 25 MHz or 25.175 MHz
+// For 60 Hz VGA i_pix_stb should be 25.175 MHz, but 25 MHz often works
 // Details in tutorial: https://timetoexplore.net/blog/arty-fpga-vga-verilog-01
 
 `default_nettype none
@@ -25,11 +25,11 @@ module vga640x480(
     localparam HS_STA = 16;              // horizontal sync start
     localparam HS_END = 16 + 96;         // horizontal sync end
     localparam HA_STA = 16 + 96 + 48;    // horizontal active pixel start
-    localparam VS_STA = 480 + 11;        // vertical sync start
-    localparam VS_END = 480 + 11 + 2;    // vertical sync end
+    localparam VS_STA = 480 + 10;        // vertical sync start
+    localparam VS_END = 480 + 10 + 2;    // vertical sync end
     localparam VA_END = 480;             // vertical active pixel end
     localparam LINE   = 800;             // complete line (pixels)
-    localparam SCREEN = 524;             // complete screen (lines)
+    localparam SCREEN = 525;             // complete screen (lines)
 
     reg [9:0] h_count;  // line position
     reg [9:0] v_count;  // screen position

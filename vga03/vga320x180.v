@@ -1,8 +1,8 @@
 // FPGA VGA Graphics Part 3: 320x180 60Hz VGA Driver
-// (C)2018 Will Green - Licensed under the MIT License
+// (C)2018-2019 Will Green - Licensed under the MIT License
 // Learn more at https://timetoexplore.net/blog/arty-fpga-vga-verilog-03
 
-// For 60Hz VGA i_pix_stb must be 25 MHz or 25.175 MHz
+// For 60 Hz VGA i_pix_stb should be 25.175 MHz, but 25 MHz often works
 // Details in tutorial: https://timetoexplore.net/blog/arty-fpga-vga-verilog-01
 
 // This VGA driver is the same as 640x360.v, but o_x and o_y are halved.
@@ -27,12 +27,12 @@ module vga320x180(
     localparam HS_STA = 16;              // horizontal sync start
     localparam HS_END = 16 + 96;         // horizontal sync end
     localparam HA_STA = 16 + 96 + 48;    // horizontal active pixel start
-    localparam VS_STA = 480 + 11;        // vertical sync start
-    localparam VS_END = 480 + 11 + 2;    // vertical sync end
+    localparam VS_STA = 480 + 10;        // vertical sync start
+    localparam VS_END = 480 + 10 + 2;    // vertical sync end
     localparam VA_STA = 60;              // vertical active pixel start
     localparam VA_END = 420;             // vertical active pixel end
     localparam LINE   = 800;             // complete line (pixels)
-    localparam SCREEN = 524;             // complete screen (lines)
+    localparam SCREEN = 525;             // complete screen (lines)
 
     reg [9:0] h_count;      // line position
     reg [9:0] v_count;      // screen position
